@@ -1,0 +1,78 @@
+<div class="card w-75 bg-light mb-5" style="margin-left: 12%; margin-top: 10vh">
+  <div class="card-body">
+    <main class="form-signin">
+      <form [formGroup]="formUpdateUser" (submit)="submitUpdateUser()">
+        <h1 class="h3 mb-3 fw-normal text-center">Inscription</h1>
+
+        <div class="form-floating my-2">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            formControlName="name"
+          />
+          <label for="floatingInput">Nom et Prenom</label>
+        </div>
+        <div class="form-floating my-2">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            formControlName="email"
+          />
+          <label for="floatingInput">Email </label>
+        </div>
+
+        <button
+          class="float-end w-25 btn btn-dark mt-2 text-white"
+          type="submit"
+        >
+          Sign in
+        </button>
+      </form>
+    </main>
+  </div>
+</div>
+
+<div class="card w-75 bg-light mt-5" style="margin-left: 12%">
+  <div class="card-body">
+    <main class="form-signin" (submit)="submitUpdatePassword()">
+      <form [formGroup]="formUpdatePassword">
+        <h1 class="h3 mb-3 fw-normal text-center">
+          Mettre a jour le Mot de Passe
+        </h1>
+
+        <div class="form-floating my-2">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="form-floating my-2">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+            formControlName="confirm_password"
+          />
+          <label for="floatingPassword">Confirm Password</label>
+        </div>
+
+        <button
+          class="float-end w-25 btn btn-md btn-dark mt-2 text-white"
+          type="submit"
+        >
+          Mettre a Jour
+        </button>
+      </form>
+    </main>
+  </div>
+</div>
