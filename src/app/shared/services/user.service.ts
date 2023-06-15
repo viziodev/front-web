@@ -16,4 +16,7 @@ export class UserService {
     }
     return this.http.get<MyResponse>(currentUrl);
   }
+  remove(id:number){
+    return this.http.delete<MyResponse>(`${environment.api}/users/${id}`)
+  }
 }

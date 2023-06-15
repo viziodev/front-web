@@ -27,4 +27,10 @@ export class UsersComponent implements OnInit {
     this.currentUrl = url;
     this.refresh();
   }
+
+  onDelete(user: User) {
+    this.userService.remove(user.id).subscribe({
+      next: (res: MyResponse) => {},
+    });
+  }
 }

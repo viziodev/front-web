@@ -9,6 +9,8 @@ import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UiModule } from '../shared/components/ui/ui.module';
+
 @NgModule({
   declarations: [
     SecuriteComponent,
@@ -18,6 +20,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     ProfilComponent,
   ],
-  imports: [CommonModule, RouterModule, HttpClientModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    UiModule,
+  ],
 })
 export class SecuriteModule {}
