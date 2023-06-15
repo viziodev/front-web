@@ -16,26 +16,19 @@ export class AuthService {
     return this.http.post<MyResponse>(`${api}/register`, data);
   }
   user(): Observable<MyResponse> {
-    const headers = {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')} ` },
-    };
-    return this.http.get<MyResponse>(`${api}/user/current`, headers);
+   
+    return this.http.get<MyResponse>(`${api}/user/current`);
   }
 
   updateInfoUser(data: any): Observable<MyResponse> {
-    const headers = {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')} ` },
-    };
-    return this.http.put<MyResponse>(`${api}/user/current/info`, data, headers);
+    
+    return this.http.put<MyResponse>(`${api}/user/current/info`, data);
   }
   updateInfoPassword(data: any): Observable<MyResponse> {
-    const headers = {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')} ` },
-    };
+   
     return this.http.put<MyResponse>(
       `${api}/user/current/password`,
       data,
-      headers
     );
   }
 }

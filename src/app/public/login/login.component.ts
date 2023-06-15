@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     let data = this.form.getRawValue();
     this.authService.authentification(data).subscribe((data: any) => {
       localStorage.setItem('token', data['token']);
-    this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/dashboard');
     });
   }
 }

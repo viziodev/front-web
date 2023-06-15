@@ -11,21 +11,18 @@ import { MyResponse } from '../shared/models/response';
   styleUrls: ['./securite.component.scss'],
 })
 export class SecuriteComponent implements OnInit {
-  user :User|null=null
   constructor(private authService: AuthService, private router: Router) {}
-  
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.authService
       .user()
-      .pipe()
-      .subscribe(
-        (res: MyResponse) => {
-           this.user=res.data
-           Auth.user=this.user!
-        },
-        (error) => {
-          this.router.navigate(['/login']);
-        }
+      .subscribe({
+        next: (res: MyResponse) => {
+          Auth.user=res.data!
+         },
+         error: (error) => {
+         this.router.navigate(['/login']);
+         }
+      }
       );
   }
 }
