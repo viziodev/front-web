@@ -10,7 +10,10 @@ import { environment } from 'src/environments/environment';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  all(): Observable<MyResponse> {
-    return this.http.get<MyResponse>(`${environment.api}/users`);
+  all(currentUrl: string|null): Observable<MyResponse> {
+    if(!currentUrl){
+      currentUrl=`${environment.api}/users`
+    }
+    return this.http.get<MyResponse>(currentUrl);
   }
 }

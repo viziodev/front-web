@@ -29,4 +29,20 @@
       </tr>
     </tbody>
   </table>
+  <nav aria-label="Page navigation example mt-2 ">
+    <ul class="pagination float-end">
+      <li
+        [class.active]="link.active"
+        class="page-item active"
+        *ngFor="let link of links"
+      >
+        <a
+          class="page-link"
+          href="javascript:void(0)"
+          (click)="paginate(link.url)"
+          >{{ link.label }}</a
+        >
+      </li>
+    </ul>
+  </nav>
 </div>
