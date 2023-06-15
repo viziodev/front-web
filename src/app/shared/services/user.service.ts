@@ -19,4 +19,7 @@ export class UserService {
   remove(id:number){
     return this.http.delete<MyResponse>(`${environment.api}/users/${id}`)
   }
+  create(data:any): Observable<MyResponse>{
+    return this.http.post<MyResponse>(`${environment.api}/users`,data);
+  }
 }

@@ -1,0 +1,57 @@
+<div class="card bg-light me-2">
+  <div class="card-body">
+    <main class="form-signin" (submit)="submit()">
+      <form [formGroup]="form">
+        <div class="form-floating my-2">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            formControlName="name"
+          />
+          <label for="floatingInput">Nom et Prenom</label>
+        </div>
+        <div class="form-floating my-2">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            formControlName="email"
+          />
+          <label for="floatingInput">Email </label>
+        </div>
+        <div class="form-floating my-2">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="mb-3">
+          <select
+            class="form-select form-select-lg"
+            name=""
+            id=""
+            formControlName="role"
+          >
+            <option selected value="0">Role</option>
+            <option value="" *ngFor="let role of roles" [ngValue]="">
+              {{ role.libelle }}
+            </option>
+          </select>
+        </div>
+        <button
+          class="float-end btn btn-md btn-dark mt-2 text-white"
+          type="submit"
+        >
+          Save
+        </button>
+      </form>
+    </main>
+  </div>
+</div>

@@ -30,7 +30,9 @@ export class UsersComponent implements OnInit {
 
   onDelete(user: User) {
     this.userService.remove(user.id).subscribe({
-      next: (res: MyResponse) => {},
+      next: (res: MyResponse) => {
+        this.refresh();
+      },
     });
   }
 }
