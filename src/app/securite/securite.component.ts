@@ -12,17 +12,5 @@ import { MyResponse } from '../shared/models/response';
 })
 export class SecuriteComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
-    ngOnInit(): void {
-    this.authService
-      .user()
-      .subscribe({
-        next: (res: MyResponse) => {
-          Auth.user=res.data!
-         },
-         error: (error) => {
-         this.router.navigate(['/login']);
-         }
-      }
-      );
-  }
+  ngOnInit(): void {}
 }

@@ -11,6 +11,8 @@ import { ProfilComponent } from './profil/profil.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UiModule } from '../shared/components/ui/ui.module';
 import { CreateUserComponent } from './users/create-user/create-user.component';
+import { RoleComponent } from './role/role.component';
+import { CreateRoleComponent } from './role/create-role/create-role.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { CreateUserComponent } from './users/create-user/create-user.component';
     DashboardComponent,
     ProfilComponent,
     CreateUserComponent,
+    RoleComponent,
+    CreateRoleComponent,
   ],
   imports: [
     CommonModule,

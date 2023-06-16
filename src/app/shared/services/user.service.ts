@@ -3,23 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MyResponse } from '../models/response';
 import { environment } from 'src/environments/environment';
+import { RestService } from './rest.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
-  constructor(private http: HttpClient) {}
-
-  all(currentUrl: string|null): Observable<MyResponse> {
-    if(!currentUrl){
-      currentUrl=`${environment.api}/users`
-    }
-    return this.http.get<MyResponse>(currentUrl);
+export class UserService extends RestService {
+  override endpoint(): string {
+     return "users";
   }
-  remove(id:number){
-    return this.http.delete<MyResponse>(`${environment.api}/users/${id}`)
-  }
-  create(data:any): Observable<MyResponse>{
-    return this.http.post<MyResponse>(`${environment.api}/users`,data);
-  }
+  
 }

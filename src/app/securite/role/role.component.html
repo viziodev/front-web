@@ -1,9 +1,9 @@
-<div class="btn-toolbar mb-2 mb-md-0 float-end">
-  <div class="btn-group me-2">
+<div class="btn-toolbar mb-2">
+  <div class="btn-group offset-sm-11">
     <button
       type="button"
       class="btn btn-sm btn-outline-secondary"
-      routerLink="/users/save"
+      routerLink="/roles/save"
     >
       Add
     </button>
@@ -14,31 +14,27 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Nom et Prenom</th>
-        <th scope="col">Email</th>
-        <th scope="col">Role</th>
+        <th scope="col">Libelle</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let role of roles">
         <td></td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.role.libelle }}</td>
-        <td>
-          <div class="btn-group d-flex col-8">
+        <td>{{ role.libelle }}</td>
+        <td class="w-25">
+          <div class="btn-group d-flex col-4">
             <a
               type="button"
               class="btn btn-sm btn-outline-secondary mr-2"
-              routerLink="/users/{{ user.id }}/edit"
+              routerLink="/roles/{{ role.id }}/edit"
             >
               Edit
             </a>
             <button
               type="button"
               class="btn btn-sm btn-outline-secondary"
-              (click)="onDelete(user)"
+              (click)="onDelete(role)"
             >
               Delete
             </button>
@@ -47,8 +43,4 @@
       </tr>
     </tbody>
   </table>
-  <app-paginator
-    [links]="links"
-    (currentUrl)="paginate($event)"
-  ></app-paginator>
 </div>
