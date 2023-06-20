@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Auth } from 'src/app/shared/classes/auth';
 import { Action } from 'src/app/shared/models/action';
 import { MyResponse } from 'src/app/shared/models/response';
 import { Role } from 'src/app/shared/models/role';
@@ -16,7 +17,7 @@ export class CreateUserComponent implements OnInit {
   roles: Role[] = [];
   form: FormGroup;
   action: Action = Action.ADD;
-
+  permissions : string[]=[]
   constructor(
     private userService: UserService,
     private roleService: RoleService,
@@ -34,6 +35,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.permissions=Auth.user.permissions!;
     this.roleService.all().subscribe({
       next: (res: MyResponse) => (this.roles = res.data),
       error: (err) => {},

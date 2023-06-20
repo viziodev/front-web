@@ -39,11 +39,24 @@
             id=""
             formControlName="role"
           >
-            <option  value="0">Role</option>
+            <option value="0">Role</option>
             <option value="" *ngFor="let role of roles" [ngValue]="role.id">
               {{ role.libelle }}
             </option>
           </select>
+        </div>
+
+        <div class="list-group">
+          <label class="list-group-item" *ngFor="let p of permissions">
+            <input
+              class="form-check-input me-1"
+              type="checkbox"
+              checked
+              value=""
+              disabled
+            />
+            {{ p }}
+          </label>
         </div>
         <button
           class="float-end btn btn-md btn-dark mt-2 text-white"
